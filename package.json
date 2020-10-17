@@ -1,0 +1,14 @@
+{
+  "name": "seite",
+  "version": "1.0.0",
+  "description": "Generic chatting app",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon .",
+    "start": "node .",
+    "test-repl": "npx nodemon ."
+  },
+  "keywords": [],
+  "author": "me",
+  "license": "ISC"
+}
