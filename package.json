@@ -4,11 +4,15 @@
   "description": "Generic chatting app",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon .",
+    "test": "nodemon . -i public/ -e js,json,ejs", 
     "start": "node .",
     "test-repl": "npx nodemon ."
   },
   "keywords": [],
   "author": "me",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.5",
+    "express": "^4.17.1"
+  }
 }

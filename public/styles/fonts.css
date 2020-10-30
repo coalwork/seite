@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'Open Sans';
+  src: url(/assets/OpenSans-Regular.ttf);
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  src: url(/assets/OpenSans-Bold.ttf);
+}
+@font-face {
+  font-family: Poppins;
+  src: url(/assets/Poppins-Regular.ttf);
+}
+@font-face {
+  font-family: Poppins;
+  font-weight: bold;
+  src: url(/assets/Poppins-Bold.ttf);
+}
