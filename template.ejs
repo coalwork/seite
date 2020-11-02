@@ -10,12 +10,15 @@
       <!-- OPTIONAL: Create a website logo -->
       <h1>seite</h1>
       <nav>
-        <a href="/">
-          <img src="/assets/icon-home.svg" alt="Home">
-        </a>
-        <a href="/chat">
-          <img src="/assets/icon-chat.svg" alt="Home">
-        </a>
+        <% const routes = ',chat'.split(','); %>
+        <% for (let route of [...routes]) { %>
+        <%- `
+          <a href="${`/${route}` === path ? 'javascript:void(0)' : `/${route}`}">
+            ${route = route || 'home', ''}
+            <img src="/assets/icon-${route}.svg" alt="${route[0].toUpperCase()}${route.slice(1)}">
+          </a>
+        ` %>
+        <% } %>
       </nav>
     </header>
     <%- body %>
