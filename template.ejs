@@ -4,18 +4,32 @@
     <meta charset="utf8">
     <%- head %>
     <link rel="stylesheet" href="/styles/fonts.css">
+    <link rel="stylesheet" href="/styles/index.css">
+    <script>
+      addEventListener('DOMContentLoaded', () => {
+        document.head.insertAdjacentHTML('beforeend', `<style>* { transition: 0.2s background-color, 0.2s color; }</style>`);
+      });
+    </script>
   </head>
   <body>
     <header>
       <!-- OPTIONAL: Create a website logo -->
       <h1>seite</h1>
       <nav>
-        <% const routes = ',chat'.split(','); %>
-        <% for (let route of [...routes]) { %>
+        <% 
+        // Add routes here:
+        const routes = ',chat,login'.split(',');
+        
+        for (let route of [...routes]) {
+        %>
         <%- `
           <a href="${`/${route}` === path ? 'javascript:void(0)' : `/${route}`}">
             ${route = route || 'home', ''}
-            <img src="/assets/icon-${route}.svg" alt="${route[0].toUpperCase()}${route.slice(1)}">
+            <img
+              src="/assets/icon-${route}.svg"
+              alt="${route[0].toUpperCase()}${route.slice(1)}"
+              title="${route[0].toUpperCase()}${route.slice(1)}"
+            >
           </a>
         ` %>
         <% } %>

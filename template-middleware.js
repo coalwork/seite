@@ -5,6 +5,7 @@ const ejs     = require('ejs');
 const fs      = require('fs');
 const { pathToFileURL } = require('url');
 
+const renderTemplate = require('./render-template');
 const template = fs.readFileSync('template.ejs').toString();
 
 const staticServer = express.static('public');
@@ -18,7 +19,19 @@ router.use((req, res, next) => {
   
   const file = fs.readFileSync(filename, 'utf-8');
   
-  res.send(renderTemplate(template, file, req.path));
+  res.send(renderTemplate(file, req.path));
+});
+
+// Gets html template:
+// /error.html => /error.template.html
+router.use((req, res, next) => {
+  const pathToFile = path.join(__dirname, 'public', req.path.replace(/\.html$/, '\.template.html'));
+
+  if (!fs.existsSync(pathToFile) || !/\.html$/.test(req.path)) { return next(); }
+
+  const file = fs.readFileSync(pathToFile, 'utf-8');
+
+  res.send(renderTemplate(file, req.path));
 });
 
 // Don't serve any *.template.html files
@@ -27,10 +40,9 @@ router.use((req, res, next) => {
   staticServer(req, res, next);
 });
 
+router.use((req, res) => {
+  const file = fs.readFileSync(path.join(__dirname, 'public', 'error.template.html'), 'utf-8');
+  res.send(renderTemplate(file, req.path));
+});
+
 module.exports = router;
-
-function renderTemplate(template, file, reqPath) {
-  const [, head, body] = file.match(/(?:<head>([\s\S]*)<\/head>[\s\S]*)?<body>([\s\S]*)<\/body>/);
-
-  return ejs.render(template, { head, body, path: reqPath });
-}

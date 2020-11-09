@@ -1,0 +1,47 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login {
+  display: flex;
+  width: 50vw;
+  flex-direction: column;
+  background: #242424;
+  color: white;
+  padding: 20px;
+}
+#login input {
+  box-sizing: border-box;
+  padding: 2px;
+  border: none;
+  width: 100%;
+}
+#login span {
+  font-size: 1rem;
+  display: block;
+}
+#login button {
+  background: #242424;
+  margin: 0.8em 0.4em 0 0;
+  border: 2px solid white;
+  color: white;
+}
+#login button:hover {
+  color: black;
+  background: white;
+  cursor: pointer;
+}
+#login h1 {
+  margin: 0 0 0.2em 0;
+}
+#login > * {
+  margin: 0.3em 0;
+}

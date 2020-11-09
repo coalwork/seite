@@ -1,5 +1,5 @@
 :root {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: Poppins, Helvetica, Arial, sans-serif;
 }
 
 html, body {
@@ -8,16 +8,32 @@ html, body {
   margin: 0;
 }
 
+body {
+  background: #2D2D2D;
+}
+
+main {
+  color: white;
+}
+
 body > * {
   padding: 20px;
+}
+
+form, button, input {
+  font-family: Poppins;
 }
 
 h1, h2, p {
   margin: 0;
 }
 
+h1 {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+}
+
 p {
-  font-family: Poppins;
+  font-family: Poppins, Helvetica, Arial, sans-serif;
 }
 
 header {
