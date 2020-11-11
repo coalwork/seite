@@ -4,7 +4,7 @@
   "description": "Generic chatting app",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon . -i public/ -e js,json,ejs", 
+    "test": "nodemon . -i public/ -e js,json,ejs",
     "start": "node .",
     "test-repl": "npx nodemon ."
   },
@@ -12,6 +12,7 @@
   "author": "me",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.5",
     "express": "^4.17.1"
   }

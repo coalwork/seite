@@ -1,6 +1,18 @@
 <head>
   <link rel="stylesheet" href="/styles/login.css">
   <script>
+    const errorMessage = decodeURIComponent(location.hash).slice(1);
+    location.hash = '';
+
+    addEventListener('DOMContentLoaded', () => {
+      if (errorMessage.length) {
+        const error = document.querySelector('#error p');
+        
+        error.innerText = errorMessage;
+        error.style.display = 'block';
+      }
+    });
+
     function submit(type) {
       if (!type) { throw Error('No type specified during submit'); }
 
@@ -28,10 +40,13 @@
         <span>Password:</span>
         <input type="password" name="password">
       </label>
-      <span id="submit">
+      <div id="error" style="display: none">
+        <p></p>
+      </div>
+      <div id="submit">
         <button class="login" type="button">Log In</button
         ><button class="register" type="button">Register</button>
-      </span>
+      </div>
     </form>
   </main>
 </body>
