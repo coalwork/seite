@@ -12,6 +12,10 @@ function readDatabase() {
   });
 }
 
+function writeDatabaseRaw(obj) {
+  return fsp.writeFile(process.env.DATABASE, JSON.stringify(obj), 'utf-8');
+}
+
 async function writeDatabase(obj) {
   let userData = [];
 
@@ -27,4 +31,4 @@ async function writeDatabase(obj) {
   await fsp.writeFile(process.env.DATABASE, json, 'utf-8');
 }
 
-module.exports = { readDatabase, writeDatabase };
+module.exports = { readDatabase, writeDatabase, writeDatabaseRaw };

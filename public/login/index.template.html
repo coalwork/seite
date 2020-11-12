@@ -6,9 +6,10 @@
 
     addEventListener('DOMContentLoaded', () => {
       if (errorMessage.length) {
-        const error = document.querySelector('#error p');
+        const error = document.querySelector('#error');
+        const errorText = error.getElementsByTagName('p')[0];
         
-        error.innerText = errorMessage;
+        errorText.innerText = errorMessage;
         error.style.display = 'block';
       }
     });

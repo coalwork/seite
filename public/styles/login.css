@@ -12,6 +12,7 @@ main {
 
 #login {
   display: flex;
+  min-width: 300px;
   width: 50vw;
   flex-direction: column;
   background: #242424;

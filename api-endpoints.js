@@ -1,6 +1,6 @@
 const express = require('express');
 const { writeDatabase, readDatabase } = require('./db-funcs');
-const dbFuncs = require('./db-funcs');
+const logger = require('./logger');
 const router = express.Router();
 
 router.post('/register', express.urlencoded({ extended: false }), async (req, res) => {
@@ -18,6 +18,7 @@ router.post('/register', express.urlencoded({ extended: false }), async (req, re
   // Otherwise, save user to database
   try {
     await writeDatabase({ username, password });
+    logger(`User '${username}' has successfully registered`);
   } catch(error) {
     return res.redirect(`/login#${encodeURIComponent('Failed to write to database')}`);
   }
